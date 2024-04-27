@@ -5,4 +5,43 @@
     background: #2a2929;
     padding: 20px;
     flex: calc(20% - 16px);
+    max-width: calc(20% - 16px);
+    color: #DCD8D3;
+    letter-spacing: 0;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.personalData{
+    display: flex;
+}
+
+.photo > img{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.name{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+
+.additionalData{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.additionalDataContainer{
+    display: flex;
+}
+
+.phone, .birthday, .address{
+    margin-right: 12px;
 }
