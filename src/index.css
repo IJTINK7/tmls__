@@ -3,7 +3,7 @@
 body{
   background-color: #1E1E1E;
   padding: 32px;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 #root{
   background-color: #1E1E1E;
