@@ -1,0 +1,14 @@
+.genderInfo > h4, .genderInfo > div{
+    margin-bottom: 12px;
+}
+
+.genderInfo > div {
+    display: flex;
+    gap: 12px;
+}
+
+.genderInfo > h4{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+}

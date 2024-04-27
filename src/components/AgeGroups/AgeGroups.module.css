@@ -1,0 +1,14 @@
+.ageInfo > h4, .ageInfo > div{
+    margin-bottom: 12px;
+}
+
+.ageInfo > div {
+    display: flex;
+    gap: 12px;
+}
+
+.ageInfo > h4{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+}

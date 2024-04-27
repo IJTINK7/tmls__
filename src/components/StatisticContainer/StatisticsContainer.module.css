@@ -7,3 +7,7 @@
     background: #2a2929;
     padding: 24px;
 }
+
+.statisticsContainer > div, .statisticsContainer> hr {
+    margin-bottom: 24px;
+}
