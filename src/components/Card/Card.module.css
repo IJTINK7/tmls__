@@ -12,10 +12,27 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
+    position: relative;
 }
 
 .personalData{
     display: flex;
+}
+
+.button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #1E1E1E;
+}
+.button > svg {
+    position: relative;
+}
+.button > svg > use {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .photo > img{
@@ -30,7 +47,6 @@
     font-weight: 600;
     line-height: 24px;
 }
-
 
 .additionalData{
     display: flex;

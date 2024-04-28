@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../store/store.ts";
 import {CardType, getUsersThunkCreator} from "../../store/card-reducer.ts";
 import {useEffect} from "react";
+import trashIconPath from "../../assets/trash-icon.svg"
 
 export type DateOptionsType = {
 	day: 'numeric'
@@ -14,6 +15,7 @@ export const Card = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
 	const loading = useSelector<AppRootStateType, boolean>(store => store.loading)
 	const dispatch = useAppDispatch()
+	// const [isButtonVisible, setIsButtonVisible] = useState(true);
 
 	useEffect(() => {
 		dispatch(getUsersThunkCreator())
@@ -58,6 +60,13 @@ export const Card = () => {
 										<div className={styles.address}>Address</div>
 										<div>{el.location.city}, {el.location.state}, {el.location.country}</div>
 									</div>
+									{true && (
+										<button className={styles.button}>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,256,256" width="24px" height="24px">
+												<use xlinkHref={`${trashIconPath}#trash`}/>
+											</svg>
+										</button>
+									)}
 								</div>
 
 							</div>
