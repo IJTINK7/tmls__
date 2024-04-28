@@ -40,7 +40,7 @@ export const Card = () => {
 						const timestamp = el.dob.date;
 						const parsedDate = new Date(timestamp);
 						const dateOptions: DateOptionsType = {day: 'numeric', month: 'long', year: 'numeric'};
-						const formattedDate = parsedDate.toLocaleDateString('en-US', dateOptions);
+						const formattedDate = parsedDate.toLocaleDateString('en-GB', dateOptions);
 
 						return (
 							<div className={`${styles.card} ${isCardActive ? styles.active : ''}`} key={el.login.uuid} onClick={() => activateComponentHandler(el.login.uuid)}>
