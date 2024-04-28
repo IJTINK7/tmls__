@@ -43,7 +43,7 @@ export const cardReducer = (state: CardType[] = initialState, action: CardsActio
 			return action.state.map(el=>el)
 		}
 		case 'DELETE-CURRENT-CARD': {
-			return state
+			return state.filter(el=> el.login.uuid !== action.cardId)
 		}
 		default:
 			return state;
@@ -53,8 +53,8 @@ export const cardReducer = (state: CardType[] = initialState, action: CardsActio
 export const getUsersActionCreator = (state: CardType[]) => {
 	return {type: 'GET-USERS', state} as const
 }
-export const deleteCurrentCard = () => {
-	return {type: 'DELETE-CURRENT-CARD'} as const
+export const deleteCurrentCard = (cardId: string) => {
+	return {type: 'DELETE-CURRENT-CARD', cardId} as const
 }
 
 

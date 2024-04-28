@@ -3,7 +3,8 @@ import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../store/store.ts";
 import {CardType, getUsersThunkCreator} from "../../store/card-reducer.ts";
 import {useEffect} from "react";
-import trashIconPath from "../../assets/trash-icon.svg"
+import {setActiveCardActionCreator} from "../../store/activate-card-reducer.ts";
+import {DeleteCardButton} from "../DeleteCardButton/DeleteCardButton.tsx";
 
 export type DateOptionsType = {
 	day: 'numeric'
@@ -14,13 +15,17 @@ export type DateOptionsType = {
 export const Card = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
 	const loading = useSelector<AppRootStateType, boolean>(store => store.loading)
+	const activeCardId = useSelector<AppRootStateType, string>(store => store.activeCardId)
+
 	const dispatch = useAppDispatch()
-	// const [isButtonVisible, setIsButtonVisible] = useState(true);
 
 	useEffect(() => {
 		dispatch(getUsersThunkCreator())
 	}, [dispatch])
 
+	const activateComponentHandler = (cardId: string) => {
+		dispatch(setActiveCardActionCreator(cardId))
+	}
 
 	return (
 		<>
@@ -31,19 +36,20 @@ export const Card = () => {
 				</div>
 				:
 				cards.map((el) => {
+						const isCardActive = el.login.uuid === activeCardId;
 						const timestamp = el.dob.date;
 						const parsedDate = new Date(timestamp);
 						const dateOptions: DateOptionsType = {day: 'numeric', month: 'long', year: 'numeric'};
 						const formattedDate = parsedDate.toLocaleDateString('en-US', dateOptions);
 
 						return (
-							<div className={styles.card} key={el.login.uuid}>
+							<div className={`${styles.card} ${isCardActive ? styles.active : ''}`} key={el.login.uuid} onClick={() => activateComponentHandler(el.login.uuid)}>
 								<div className={styles.personalData}>
 									<div className={styles.photo}>
 										<img src={el.picture.large} alt="image"/>
 									</div>
 									<div className={styles.nameAndMail}>
-										<div className={styles.name}>{el.name.first} {el.name.last}</div>
+										<div className={`${styles.name} ${isCardActive ? styles.activeName : ''}`}>{el.name.first} {el.name.last}</div>
 										<div className={styles.email}>{el.email}</div>
 									</div>
 								</div>
@@ -60,15 +66,8 @@ export const Card = () => {
 										<div className={styles.address}>Address</div>
 										<div>{el.location.city}, {el.location.state}, {el.location.country}</div>
 									</div>
-									{true && (
-										<button className={styles.button}>
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,256,256" width="24px" height="24px">
-												<use xlinkHref={`${trashIconPath}#trash`}/>
-											</svg>
-										</button>
-									)}
+									<DeleteCardButton isCardActive={isCardActive} cardId={el.login.uuid}/>
 								</div>
-
 							</div>
 						)
 					}

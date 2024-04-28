@@ -1,8 +1,8 @@
 const initialState: boolean = false
 
-export type changeLoaderACType = ReturnType<typeof changeLoaderActionCreator>
+export type ChangeLoaderACType = ReturnType<typeof changeLoaderActionCreator>
 
-export type LoadingActionsType = changeLoaderACType
+export type LoadingActionsType = ChangeLoaderACType
 
 export const loadingReducer = (state: boolean = initialState, action: LoadingActionsType): boolean => {
 	switch (action.type) {

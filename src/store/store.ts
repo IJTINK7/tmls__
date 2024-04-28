@@ -3,10 +3,12 @@ import {ThunkDispatch, ThunkAction, thunk} from 'redux-thunk'
 import {useDispatch} from "react-redux";
 import {cardReducer, CardsActionsType} from "./card-reducer.ts";
 import {LoadingActionsType, loadingReducer} from "./loading-reducer.ts";
+import {CardActivityActionsType, setActiveCardReducer} from "./activate-card-reducer.ts";
 
 const rootReducer = combineReducers({
 	cards: cardReducer,
-	loading: loadingReducer
+	loading: loadingReducer,
+	activeCardId: setActiveCardReducer
 });
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -14,7 +16,7 @@ const rootReducer = combineReducers({
 export const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export type AppRootStateType = ReturnType<typeof rootReducer>
-export type ActionsType =   CardsActionsType | LoadingActionsType
+export type ActionsType =   CardsActionsType | LoadingActionsType | CardActivityActionsType
 export type ThunkActionType = ThunkAction<void, AppRootStateType, unknown, ActionsType>;
 export type AppThunkDispatch = ThunkDispatch<AppRootStateType, unknown, ActionsType>;
 

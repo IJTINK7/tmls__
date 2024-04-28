@@ -15,6 +15,14 @@
     position: relative;
 }
 
+.active{
+    border: 1px solid #CF7B5A;
+    color: white;
+}
+.activeName{
+    color: #CF7B5A
+}
+
 .personalData{
     display: flex;
 }
