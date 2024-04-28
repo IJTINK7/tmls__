@@ -1,29 +1,8 @@
-import {useEffect, useState} from "react";
-import {cardsApi} from "../../api/cards-api.ts";
 import styles from "./Card.module.css"
-
-export  type CardDataType = {
-	dob: {
-		date: string
-	}
-	login: {
-		uuid: string
-	}
-	picture: {
-		large: string
-	}
-	name: {
-		first: string
-		last: string
-	}
-	email: string
-	phone: string
-	location: {
-		city: string
-		state: string
-		country: string
-	}
-}
+import {useSelector} from "react-redux";
+import {AppRootStateType, useAppDispatch} from "../../store/store.ts";
+import {CardType, getUsersThunkCreator} from "../../store/card-reducer.ts";
+import {useEffect} from "react";
 
 export type DateOptionsType = {
 	day: 'numeric'
@@ -32,17 +11,18 @@ export type DateOptionsType = {
 }
 
 export const Card = () => {
+	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
+	const dispatch = useAppDispatch()
 
-	const [state, setState] = useState<CardDataType[]>([])
 	useEffect(() => {
-		cardsApi.getCards()
-			.then((res) => {
-				setState(res.data.results)
-			})
-	}, [])
+		dispatch(getUsersThunkCreator())
+	}, [dispatch])
+
+
 	return (
 		<>
-			{state.map((el) => {
+			{
+				cards.map((el) => {
 					const timestamp = el.dob.date;
 					const parsedDate = new Date(timestamp);
 					const dateOptions: DateOptionsType = {day: 'numeric', month: 'long', year: 'numeric'};
@@ -76,8 +56,7 @@ export const Card = () => {
 
 						</div>
 					)
-				}
-			)}
+				})}
 		</>
 	);
 };
