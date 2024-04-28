@@ -12,6 +12,7 @@ export type DateOptionsType = {
 
 export const Card = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
+	const loading = useSelector<AppRootStateType, boolean>(store => store.loading)
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
@@ -21,42 +22,48 @@ export const Card = () => {
 
 	return (
 		<>
-			{
+			{loading
+				?
+				<div>
+					Loading ...
+				</div>
+				:
 				cards.map((el) => {
-					const timestamp = el.dob.date;
-					const parsedDate = new Date(timestamp);
-					const dateOptions: DateOptionsType = {day: 'numeric', month: 'long', year: 'numeric'};
-					const formattedDate = parsedDate.toLocaleDateString('en-US', dateOptions);
+						const timestamp = el.dob.date;
+						const parsedDate = new Date(timestamp);
+						const dateOptions: DateOptionsType = {day: 'numeric', month: 'long', year: 'numeric'};
+						const formattedDate = parsedDate.toLocaleDateString('en-US', dateOptions);
 
-					return (
-						<div className={styles.card} key={el.login.uuid}>
-							<div className={styles.personalData}>
-								<div className={styles.photo}>
-									<img src={el.picture.large} alt="image"/>
+						return (
+							<div className={styles.card} key={el.login.uuid}>
+								<div className={styles.personalData}>
+									<div className={styles.photo}>
+										<img src={el.picture.large} alt="image"/>
+									</div>
+									<div className={styles.nameAndMail}>
+										<div className={styles.name}>{el.name.first} {el.name.last}</div>
+										<div className={styles.email}>{el.email}</div>
+									</div>
 								</div>
-								<div className={styles.nameAndMail}>
-									<div className={styles.name}>{el.name.first} {el.name.last}</div>
-									<div className={styles.email}>{el.email}</div>
+								<div className={styles.additionalData}>
+									<div className={styles.additionalDataContainer}>
+										<div className={styles.phone}>Phone No</div>
+										<div>{el.phone}</div>
+									</div>
+									<div className={styles.additionalDataContainer}>
+										<div className={styles.birthday}>Birthday</div>
+										<div>{formattedDate}</div>
+									</div>
+									<div className={styles.additionalDataContainer}>
+										<div className={styles.address}>Address</div>
+										<div>{el.location.city}, {el.location.state}, {el.location.country}</div>
+									</div>
 								</div>
-							</div>
-							<div className={styles.additionalData}>
-								<div className={styles.additionalDataContainer}>
-									<div className={styles.phone}>Phone No</div>
-									<div>{el.phone}</div>
-								</div>
-								<div className={styles.additionalDataContainer}>
-									<div className={styles.birthday}>Birthday</div>
-									<div>{formattedDate}</div>
-								</div>
-								<div className={styles.additionalDataContainer}>
-									<div className={styles.address}>Address</div>
-									<div>{el.location.city}, {el.location.state}, {el.location.country}</div>
-								</div>
-							</div>
 
-						</div>
-					)
-				})}
+							</div>
+						)
+					}
+				)}
 		</>
 	);
 };

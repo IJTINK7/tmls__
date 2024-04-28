@@ -1,32 +1,8 @@
 import {cardsApi} from "../api/cards-api.ts";
 import {AppThunkDispatch, ThunkActionType} from "./store.ts";
+import {changeLoaderActionCreator} from "./loading-reducer.ts";
 
-const initialState: CardType[] = [
-	{
-		"login": {
-			"uuid": ""
-		},
-		"picture": {
-			"large": ""
-		},
-		"gender": "",
-		"name": {
-			"first": "",
-			"last": ""
-		},
-		"email": "",
-		"phone": "",
-		"dob": {
-			"date": "",
-			"age": 0
-		},
-		"location": {
-			"city": "",
-			"state": "",
-			"country": ""
-		}
-	}
-]
+const initialState: CardType[] = []
 
 export type CardType = {
 	"login": {
@@ -57,11 +33,11 @@ export type getUsersType = ReturnType<typeof getUsersActionCreator>
 export type deleteCurrentCard = ReturnType<typeof deleteCurrentCard>
 
 
-export type ActionsType = getUsersType | deleteCurrentCard
+export type CardsActionsType = getUsersType | deleteCurrentCard
 
 
 
-export const cardReducer = (state: CardType[] = initialState, action: ActionsType): CardType[] => {
+export const cardReducer = (state: CardType[] = initialState, action: CardsActionsType): CardType[] => {
 	switch (action.type) {
 		case 'GET-USERS': {
 			return action.state.map(el=>el)
@@ -83,8 +59,10 @@ export const deleteCurrentCard = () => {
 
 
 export const getUsersThunkCreator = (): ThunkActionType => (dispatch: AppThunkDispatch) => {
+	dispatch(changeLoaderActionCreator(true))
 	cardsApi.getCards()
 		.then((res) => {
 			dispatch(getUsersActionCreator(res.data.results))
+			dispatch(changeLoaderActionCreator(false))
 		})
 }
