@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/hvdtrial-brandon-grotesque');
 .button {
     padding: 4px 0;
-    border: 1px white solid;
+    border: none;
     background-color:  #1E1E1E;
     cursor: pointer;
     width: 132px;
