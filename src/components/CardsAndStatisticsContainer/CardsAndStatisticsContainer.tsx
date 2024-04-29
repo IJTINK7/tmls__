@@ -4,8 +4,8 @@ import {StatisticsContainer} from "../StatisticContainer/StatisticsContainer.tsx
 export const CardsAndStatisticsContainer = () => {
 	return (
 		<div className={styles.container}>
-			<div><CardsContainer/></div>
-			<div><StatisticsContainer/></div>
+			<CardsContainer/>
+			<StatisticsContainer/>
 		</div>
 	);
 };

@@ -2,10 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-right: 8px;
-}
-.cardContainer >:not(:last-child) {
-    margin-right:2px;
+    padding-right: 8px;
+    flex: 100;
 }
 
 .scroll{

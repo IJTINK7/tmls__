@@ -3,6 +3,6 @@ import {CardType} from "../store/card-reducer.ts";
 
 export const cardsApi = {
 	getCards() {
-		return axios.get<CardType[]>("https://randomuser.me/api/?results=15");
+		return axios.get<CardType[]>("https://randomuser.me/api/?results=70");
 	}
 }

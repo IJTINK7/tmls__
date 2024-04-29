@@ -1,13 +1,19 @@
-.statisticsContainer{
-    display: flex;
-    flex-direction: column;
+.statisticsContainer {
     width: 332px;
     height: 85vh;
     border-radius: 16px;
     background: #2a2929;
     padding: 24px;
+    flex: 1 0 auto;
 }
 
-.statisticsContainer > div, .statisticsContainer> hr {
+.statisticsContainer > div {
+    margin-bottom: 24px;
+}
+
+.statisticsContainer > hr {
+    border: none;
+    height: 1px;
+    background-color: #303238;
     margin-bottom: 24px;
 }

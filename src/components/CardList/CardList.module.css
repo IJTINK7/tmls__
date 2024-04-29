@@ -1,13 +1,12 @@
 .card{
-    width: 332px;
-    height: 196px;
+    width: 300px;
     border-radius: 16px;
     background: #2a2929;
     padding: 20px;
-    flex: calc(20% - 16px);
-    max-width: calc(20% - 16px);
+    flex: 1 1 auto;
     color: #DCD8D3;
     letter-spacing: 0;
+    border: 1px solid #2a2929;
     text-align: left;
     font-size: 14px;
     font-weight: 500;
@@ -15,8 +14,9 @@
     position: relative;
 }
 
+
 .active{
-    border: 1px solid #CF7B5A;
+    border-color: #CF7B5A;
     color: white;
 }
 .activeName{
@@ -28,19 +28,28 @@
 }
 
 .button {
+    all:initial;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     cursor: pointer;
-    background-color: #1E1E1E;
+    background-color: #4b4e5b1a;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-left: 1px solid #FF2C4733;
+    border-bottom: 1px solid #FF2C4733;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.button > svg {
-    position: relative;
-}
+
 .button > svg > use {
     position: absolute;
     top: 0;
     right: 0;
+    color: green;
 }
 
 .photo > img{
