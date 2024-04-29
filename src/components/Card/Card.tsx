@@ -16,6 +16,7 @@ export const Card = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
 	const loading = useSelector<AppRootStateType, boolean>(store => store.loading)
 	const activeCardId = useSelector<AppRootStateType, string>(store => store.activeCardId)
+	const searchTitle = useSelector<AppRootStateType, string>(store => store.searchTitle)
 
 	const dispatch = useAppDispatch()
 
@@ -27,6 +28,8 @@ export const Card = () => {
 		dispatch(setActiveCardActionCreator(cardId))
 	}
 
+	const filteredCards: CardType[] = cards.filter(el => el.name.first.toLowerCase().includes(searchTitle.toLowerCase()))
+
 	return (
 		<>
 			{loading
@@ -35,7 +38,7 @@ export const Card = () => {
 					Loading ...
 				</div>
 				:
-				cards.map((el) => {
+				filteredCards.map((el) => {
 						const isCardActive = el.login.uuid === activeCardId;
 						const timestamp = el.dob.date;
 						const parsedDate = new Date(timestamp);

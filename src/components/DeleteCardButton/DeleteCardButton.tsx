@@ -1,7 +1,7 @@
 import React from 'react';
 import trashIconPath from "../../assets/trash-icon.svg"
 import styles from "../Card/Card.module.css"
-import {deleteCurrentCard} from "../../store/card-reducer.ts";
+import {deleteCurrentCardActionCreator} from "../../store/card-reducer.ts";
 import {useAppDispatch} from "../../store/store.ts";
 
 type PropsType = {
@@ -13,7 +13,7 @@ export const DeleteCardButton: React.FC<PropsType> = ({ isCardActive, cardId }) 
 	const dispatch = useAppDispatch()
 
 	const deleteCurrentCardHandler = () => {
-		dispatch(deleteCurrentCard(cardId))
+		dispatch(deleteCurrentCardActionCreator(cardId))
 	}
 
 	return isCardActive ? (
