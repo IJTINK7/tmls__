@@ -1,4 +1,3 @@
-import styles from "./App.module.css"
 import {
 	SearchAndRefreshCardContainer
 } from "./components/SearchAndRefreshCardContainer/SearchAndRefreshCardContainer.tsx";
@@ -7,7 +6,7 @@ import {CardsAndStatisticsContainer} from "./components/CardsAndStatisticsContai
 function App() {
 
 	return (
-		<div className={styles.app}>
+		<div>
 			<SearchAndRefreshCardContainer/>
 			<CardsAndStatisticsContainer/>
 		</div>
