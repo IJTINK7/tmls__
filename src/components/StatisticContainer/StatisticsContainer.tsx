@@ -8,11 +8,15 @@ export const StatisticsContainer = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
 	return (
 		<div className={styles.statisticsContainer}>
-			<div>{cards.length} Users</div>
-			<hr/>
-			<AgeGroups/>
-			<hr/>
-			<GenderGroups/>
+			{cards.length === 1 ? (
+				<div>{cards.length} user</div>
+			) : (
+				<div>{cards.length} users</div>
+			)}
+			<hr />
+			<AgeGroups />
+			<hr />
+			<GenderGroups />
 		</div>
 	);
 };
