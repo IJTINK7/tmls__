@@ -28,7 +28,18 @@ export const Card = () => {
 		dispatch(setActiveCardActionCreator(cardId))
 	}
 
-	const filteredCards: CardType[] = cards.filter(el => el.name.first.toLowerCase().includes(searchTitle.toLowerCase()))
+	const filteredCards: CardType[] = cards.filter(el =>
+		el.name.first.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.name.last.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.email.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.phone.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		(new Date(el.dob.date)
+			.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'}))
+			.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.location.city.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.location.state.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.location.country.toLowerCase().includes(searchTitle.toLowerCase())
+	)
 
 	return (
 		<>
@@ -38,6 +49,8 @@ export const Card = () => {
 					Loading ...
 				</div>
 				:
+				filteredCards.length
+				?
 				filteredCards.map((el) => {
 						const isCardActive = el.login.uuid === activeCardId;
 						const timestamp = el.dob.date;
@@ -52,7 +65,9 @@ export const Card = () => {
 										<img src={el.picture.large} alt="image"/>
 									</div>
 									<div className={styles.nameAndMail}>
-										<div className={`${styles.name} ${isCardActive ? styles.activeName : ''}`}>{el.name.first} {el.name.last}</div>
+										<div className={`${styles.name} ${isCardActive ? styles.activeName : ''}`}>
+											{el.name.first} {el.name.last}
+										</div>
 										<div className={styles.email}>{el.email}</div>
 									</div>
 								</div>
@@ -74,7 +89,9 @@ export const Card = () => {
 							</div>
 						)
 					}
-				)}
+				)
+				: <div>User was not found. Please, enter another value.</div>
+			}
 		</>
 	);
 };

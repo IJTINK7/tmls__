@@ -60,7 +60,6 @@ export const getUsersThunkCreator = (): ThunkActionType => (dispatch: AppThunkDi
 	dispatch(changeLoaderActionCreator(true));
 	cardsApi.getCards()
 		.then((res) => {
-			// dispatch(getUsersActionCreator(JSON.parse(res.data.results)));
 			dispatch(getUsersActionCreator(res.data.results));
 			dispatch(changeLoaderActionCreator(false));
 		});
