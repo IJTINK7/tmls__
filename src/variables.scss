@@ -85,7 +85,6 @@ $statisticsLine: #303238;
 }
 
 @mixin text-ellipsis {
-  //white-space: pre-wrap;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
