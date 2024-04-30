@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
 
 // font-family
+
 $fontFamily: Jura, sans-serif;
 
 // font-weight
+
 $light: 300;
 $regular: 400;
 $medium: 500;
@@ -11,6 +13,7 @@ $semiBold: 600;
 $bold: 700;
 
 // indents
+
 $indent-xxs: 4px;
 $indent-xs: 10px;
 $indent-s: 12px;
@@ -22,6 +25,7 @@ $indent-xxxl: 32px;
 $indent-xxxxl: 100px;
 
 // colors
+
 $rootBackground: #12141B;
 $lightTextColor: #DCD8D3;
 $grayTextColor: #8C8988;
@@ -36,7 +40,7 @@ $activeCardFullName: #CF7B5A;
 $svgIcon: #FF2C47;
 $svgBorder: #FF2C47; // #FF2C4733
 $svgBackground: #4B4E5B; // #4B4E5B1A
-// $gradientColor: # 12141B 0-100%
+$gradientColor: #12141B;
 $scrollbarTrackBackground: #7A7A7A;
 $scrollbarThumbBackground: #E8E8E8; // use E8E8E8, cuz E8E8E81A doesn't work
 $statisticsBackground: #1E2027;
@@ -97,9 +101,6 @@ $statisticsLine: #303238;
   gap: $indent-s;
 }
 
-@mixin statisticsUsersCountText {
-  @extend .cardFullNameText;
-}
 
 @mixin statisticsAgeGenderGroupsTitleText {
   font-size: $indent-l;

@@ -1,3 +1,4 @@
+@import "../../variables";
 .deleteCardButton {
   all: initial;
   position: absolute;
@@ -5,8 +6,8 @@
   right: 0;
   cursor: pointer;
   background-color: #4b4e5b1a;
-  border-top-right-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-top-right-radius: $indent-l;
+  border-bottom-left-radius: $indent-l;
   border-left: 1px solid #FF2C4733;
   border-bottom: 1px solid #FF2C4733;
   width: 44px;

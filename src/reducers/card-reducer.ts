@@ -32,12 +32,8 @@ export type CardType = {
 
 };
 
-
-
-
 export type GetUsersType = ReturnType<typeof getUsersActionCreator>;
 export type DeleteCurrentCard = ReturnType<typeof deleteCurrentCardActionCreator>;
-
 export type CardsActionsType = GetUsersType | DeleteCurrentCard;
 
 export const cardReducer = (state: CardType[] = initialState, action: CardsActionsType): CardType[] => {

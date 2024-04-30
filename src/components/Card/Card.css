@@ -2,10 +2,10 @@
 .card {
   width: 300px;
   border-radius: 16px;
-  background: #1E2027;
+  background: #1A1C23;
   padding: 20px;
   flex: 1 1 auto;
-  border: 1px solid #1E2027;
+  border: 1px solid #1A1C23;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -73,7 +73,7 @@
 
 .active {
   background: #1E2027;
-  border: 1px solid #CF7B5A;
+  border: 1px solid rgba(207, 123, 90, 0.2);
 }
 .active .fullName {
   color: #CF7B5A;

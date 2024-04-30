@@ -2,19 +2,19 @@
 
 .card {
   width: 300px;
-  border-radius: 16px;
-  background: #1E2027;
-  padding: 20px;
+  border-radius: $indent-l;
+  background: $cardBackground;
+  padding: $indent-xl;
   flex: 1 1 auto;
-  border: 1px solid #1E2027;
+  border: 1px solid $cardBackground;
   text-align: left;
   cursor: pointer;
   position: relative;
 
   .personalData {
     display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
+    gap: $indent-l;
+    margin-bottom: $indent-l;
 
     .photo {
       position: relative;
@@ -50,7 +50,7 @@
 
   .additionalData {
     display: flex;
-    gap: 16px;
+    gap: $indent-l;
 
     .additionalDataKeys {
       @include appGrayText;
@@ -68,7 +68,7 @@
 
 .active {
   background: $activeCardBackground;
-  border: 1px solid $activeCardBorder;
+  border: 1px solid #CF7B5A33;
 
   .fullName {
     @include activeCardFullNameText;

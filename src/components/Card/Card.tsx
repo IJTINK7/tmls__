@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import "./Card.scss"
 import {CardType} from "../../reducers/card-reducer.ts";
 import {DeleteCardButton} from "../DeleteCardButton/DeleteCardButton.tsx";
@@ -9,7 +9,7 @@ export type DateOptionsType = {
 	year: 'numeric'
 }
 
-export const Card: React.FC<CardType> = (props) => {
+export const Card: React.FC<CardType> = memo((props) => {
 	const [isCardActive, setIsCardActive] = useState<boolean>(false)
 	const timestamp = props.dob.date;
 	const parsedDate = new Date(timestamp);
@@ -48,4 +48,4 @@ export const Card: React.FC<CardType> = (props) => {
 			<DeleteCardButton isCardActive={isCardActive} cardId={props.login.uuid}/>
 		</div>
 	);
-};
+});
