@@ -13,20 +13,18 @@ export const CardList = () => {
 		dispatch(getUsersThunkCreator())
 	}, [dispatch])
 
-	const keys = ['name.first', 'name.last', 'email', 'phone', 'dob.date', 'location.city', 'location.state', 'location.country'];
-	const filteredCards = cards.filter(
-		el => keys.some(prop => {
-			if (prop === 'dob.date') {
-				const formattedDate = new Date(el.dob.date).toLocaleDateString('en-GB', {
-					day: 'numeric',
-					month: 'long',
-					year: 'numeric'
-				});
-				return formattedDate.toString().toLowerCase().includes(searchTitle.toLowerCase());
-			}
-			return el[prop as keyof CardType]?.toString().toLowerCase().includes(searchTitle.toLowerCase());
-		})
-	);
+	const filteredCards: CardType[] = cards.filter(el =>
+		el.name.first.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.name.last.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.email.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.phone.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		(new Date(el.dob.date)
+			.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'}))
+			.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.location.city.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.location.state.toLowerCase().includes(searchTitle.toLowerCase()) ||
+		el.location.country.toLowerCase().includes(searchTitle.toLowerCase())
+	)
 
 	return (
 		<>

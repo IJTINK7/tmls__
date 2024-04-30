@@ -58,7 +58,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  padding-right: 1px;
+  flex-shrink: 0;
+  max-width: 50%;
 }
 .card .additionalData .additionalDataValues {
   white-space: nowrap;
