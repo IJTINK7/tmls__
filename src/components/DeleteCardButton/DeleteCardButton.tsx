@@ -1,6 +1,6 @@
 import React from 'react';
 import trashIconPath from "../../assets/trash-icon.svg"
-import styles from "../CardList/CardList.module.css"
+import styles from "./DeleteCardButton.module.css"
 import {deleteCurrentCardActionCreator} from "../../store/card-reducer.ts";
 import {useAppDispatch} from "../../store/store.ts";
 

@@ -1,10 +1,10 @@
-import styles from "./CardsSearch.module.css"
+import styles from "./CardsSearchInput.module.css";
 import {ChangeEvent} from "react";
 import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../store/store.ts";
 import {changeSearchTitleActionCreator} from "../../store/change-search-title.ts";
 
-export const CardsSearch = () => {
+export const CardsSearchInput = () => {
 	const searchTitle = useSelector<AppRootStateType, string>(store => store.searchTitle)
 	const dispatch = useAppDispatch()
 

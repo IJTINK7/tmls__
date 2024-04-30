@@ -3,7 +3,7 @@ import {AppRootStateType, useAppDispatch} from "../../store/store.ts";
 import {CardType, getUsersThunkCreator} from "../../store/card-reducer.ts";
 import {useEffect} from "react";
 
-import {Card} from "../Card.tsx";
+import {Card} from "../Card/Card.tsx";
 export const CardList = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
 	const loading = useSelector<AppRootStateType, boolean>(store => store.loading)
@@ -31,10 +31,10 @@ export const CardList = () => {
 	return (
 		<>
 			{loading
-				? <div>Loading ...</div>
+				? <h4>Loading ...</h4>
 				: filteredCards.length
 					? filteredCards.map(el => <Card key={el.login.uuid} {...el}/>)
-					: <div>User was not found. Please, enter another value.</div>
+					: <h4>User was not found. Please, enter another value or click "Refresh Users" button.</h4>
 			}
 		</>
 	);

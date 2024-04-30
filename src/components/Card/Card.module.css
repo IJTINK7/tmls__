@@ -1,12 +1,12 @@
 .card{
     width: 300px;
     border-radius: 16px;
-    background: #2a2929;
+    background: #1E2027;
     padding: 20px;
     flex: 1 1 auto;
     color: #DCD8D3;
     letter-spacing: 0;
-    border: 1px solid #2a2929;
+    border: 1px solid #1E2027;
     text-align: left;
     font-size: 14px;
     font-weight: 500;
@@ -19,37 +19,27 @@
     border-color: #CF7B5A;
     color: white;
 }
+
+.additionalData,
+.email,
+.additionalDataContainer,
+.birthday,
+.phone{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.active{
+    border-color: #CF7B5A;
+    color: white;
+}
 .activeName{
     color: #CF7B5A
 }
 
 .personalData{
     display: flex;
-}
-
-.button {
-    all:initial;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    background-color: #4b4e5b1a;
-    border-top-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    border-left: 1px solid #FF2C4733;
-    border-bottom: 1px solid #FF2C4733;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.button > svg > use {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: green;
 }
 
 .photo > img{

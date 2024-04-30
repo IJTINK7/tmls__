@@ -1,8 +1,8 @@
 import {useAppDispatch} from "../../store/store.ts";
 import {getUsersThunkCreator} from "../../store/card-reducer.ts";
-import styles from "./RefreshUsers.module.css"
+import styles from "./RefreshUsersButton.module.css"
 
-export const RefreshUsers = () => {
+export const RefreshUsersButton = () => {
 	const dispatch = useAppDispatch()
 
 	const refreshUsersHandler = () => {

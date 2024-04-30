@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import styles from "./CardList/CardList.module.css";
-import {DeleteCardButton} from "./DeleteCardButton/DeleteCardButton.tsx";
-import {CardType} from "../store/card-reducer.ts";
+import styles from "./Card.module.css"
+import {DeleteCardButton} from "../DeleteCardButton/DeleteCardButton.tsx";
+import {CardType} from "../../store/card-reducer.ts";
 
 export type DateOptionsType = {
 	day: 'numeric'
