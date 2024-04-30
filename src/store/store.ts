@@ -1,9 +1,11 @@
 import {combineReducers, applyMiddleware, createStore } from 'redux'
+
 import {ThunkDispatch, ThunkAction, thunk} from 'redux-thunk'
 import {useDispatch} from "react-redux";
-import {cardReducer, CardsActionsType} from "./card-reducer.ts";
-import {LoadingActionsType, loadingReducer} from "./loading-reducer.ts";
-import {ChangeSearchTitleActionsType, changeSearchTitleReducer} from "./change-search-title.ts";
+import {cardReducer, CardsActionsType} from "../reducers/card-reducer.ts";
+import {LoadingActionsType, loadingReducer} from "../reducers/loading-reducer.ts";
+import {ChangeSearchTitleActionsType, changeSearchTitleReducer} from "../reducers/change-search-title.ts";
+
 
 const rootReducer = combineReducers({
 	cards: cardReducer,

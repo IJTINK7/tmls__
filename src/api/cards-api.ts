@@ -1,5 +1,5 @@
-import axios from 'axios'
-import {CardType} from "../store/card-reducer.ts";
+import axios from "axios";
+import {CardType} from "../reducers/card-reducer.ts";
 
 export const cardsApi = {
 	getCards() {

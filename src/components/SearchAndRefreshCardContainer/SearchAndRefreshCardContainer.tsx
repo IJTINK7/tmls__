@@ -1,11 +1,11 @@
+import "./SearchAndRefreshCardContainer.scss"
 import {RefreshUsersButton} from "../RefreshUsersButton/RefreshUsersButton.tsx";
-import styles from "./SearchAndRefreshCardContainer.module.css"
-import {CardsSearchInput} from "../CardsSearchInput/CardsSearchInput.tsx";
+import {SearchInput} from "../SearchInput/SearchInput.tsx";
 
 export const SearchAndRefreshCardContainer = () => {
 	return (
-		<div className={styles.container}>
-			<CardsSearchInput/>
+		<div className="searchAndRefreshCardContainer">
+			<SearchInput/>
 			<RefreshUsersButton/>
 		</div>
 	);

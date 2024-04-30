@@ -1,14 +1,16 @@
 import {
 	SearchAndRefreshCardContainer
 } from "./components/SearchAndRefreshCardContainer/SearchAndRefreshCardContainer.tsx";
-import {CardsAndStatisticsContainer} from "./components/CardsAndStatisticsContainer/CardsAndStatisticsContainer.tsx";
+import {
+	CardListAndStatisticsContainer
+} from "./components/CardListAndStatisticsContainer/CardListAndStatisticsContainer.tsx";
 
 function App() {
 
 	return (
 		<div>
 			<SearchAndRefreshCardContainer/>
-			<CardsAndStatisticsContainer/>
+			<CardListAndStatisticsContainer/>
 		</div>
 	)
 }

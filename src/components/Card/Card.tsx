@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import styles from "./Card.module.css"
+import React, {useState} from "react";
+import "./Card.scss"
+import {CardType} from "../../reducers/card-reducer.ts";
 import {DeleteCardButton} from "../DeleteCardButton/DeleteCardButton.tsx";
-import {CardType} from "../../store/card-reducer.ts";
 
 export type DateOptionsType = {
 	day: 'numeric'
@@ -19,33 +19,33 @@ export const Card: React.FC<CardType> = (props) => {
 		setIsCardActive(value => !value)
 	}
 	return (
-		<div className={`${styles.card} ${isCardActive ? styles.active : ''}`} key={props.login.uuid} onClick={activateComponentHandler}>
-			<div className={styles.personalData}>
-				<div className={styles.photo}>
+		<div className={`card ${isCardActive ? "active" : ""}`} key={props.login.uuid} onClick={activateComponentHandler}>
+
+			<div className="personalData">
+				<div className="photo">
 					<img src={props.picture.large} alt="image"/>
 				</div>
-				<div className={styles.nameAndMail}>
-					<div className={`${styles.name} ${isCardActive ? styles.activeName : ''}`}>
+				<div className="nameAndEmail">
+					<div className="fullName">
 						{props.name.first} {props.name.last}
 					</div>
-					<div className={styles.email}>{props.email}</div>
+					<div className="email">{props.email}</div>
 				</div>
 			</div>
-			<div className={styles.additionalData}>
-				<div className={styles.additionalDataContainer}>
-					<div className={styles.phone}>Phone No</div>
+
+			<div className="additionalData">
+				<div className="additionalDataKeys">
+					<div>Phone No</div>
+					<div>Birthday</div>
+					<div>Address</div>
+				</div>
+				<div className="additionalDataValues">
 					<div>{props.phone}</div>
-				</div>
-				<div className={styles.additionalDataContainer}>
-					<div className={styles.birthday}>Birthday</div>
 					<div>{formattedDate}</div>
-				</div>
-				<div className={styles.additionalDataContainer}>
-					<div className={styles.address}>Address</div>
 					<div>{props.location.city}, {props.location.state}, {props.location.country}</div>
 				</div>
-				<DeleteCardButton isCardActive={isCardActive} cardId={props.login.uuid}/>
 			</div>
+			<DeleteCardButton isCardActive={isCardActive} cardId={props.login.uuid}/>
 		</div>
 	);
 };

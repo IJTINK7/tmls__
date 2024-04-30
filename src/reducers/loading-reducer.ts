@@ -14,6 +14,6 @@ export const loadingReducer = (state: boolean = initialState, action: LoadingAct
 	}
 }
 
-export const changeLoaderActionCreator = (isLoading:boolean) => {
+export const changeLoaderActionCreator = (isLoading: boolean) => {
 	return {type: 'CHANGE-LOADER', isLoading} as const
 }

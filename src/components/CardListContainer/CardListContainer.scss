@@ -1,0 +1,30 @@
+@import "../../variables";
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $indent-l;
+  padding-right: 8px;
+  flex: 100;
+}
+
+.scroll {
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll::-webkit-scrollbar {
+  width: $indent-xxs;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background-color: $scrollbarTrackBackground;
+  border-radius: $indent-xxxxl;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: $scrollbarThumbBackground;
+  border-radius: $indent-xxxxl;
+  height: 15%;
+}

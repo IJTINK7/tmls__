@@ -1,7 +1,7 @@
-import styles from "./AgeGroups.module.css";
+import "./AgeGroups.scss"
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../store/store.ts";
-import {CardType} from "../../store/card-reducer.ts";
+import {CardType} from "../../reducers/card-reducer.ts";
 
 export const AgeGroups = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards);
@@ -12,17 +12,17 @@ export const AgeGroups = () => {
 	};
 
 	return (
-		<div className={styles.ageInfo}>
+		<div className="ageGroups">
 			<h4>Age Groups</h4>
-			<div className={styles.ageGroup}>
-				<div className={styles.ages}>
+			<div className="ageGroupsInfo">
+				<div className="ages">
 					<div>11 to 20</div>
 					<div>21 to 30</div>
 					<div>31 to 40</div>
 					<div>41 to 50</div>
 					<div>51+</div>
 				</div>
-				<div className={styles.usersCount}>
+				<div className="usersCount">
 					<div>{countUsersInAgeRange(11, 20)}</div>
 					<div>{countUsersInAgeRange(21, 30)}</div>
 					<div>{countUsersInAgeRange(31, 40)}</div>

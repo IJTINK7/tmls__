@@ -1,9 +1,9 @@
+import {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../store/store.ts";
-import {CardType, getUsersThunkCreator} from "../../store/card-reducer.ts";
-import {useEffect} from "react";
-
+import {CardType, getUsersThunkCreator} from "../../reducers/card-reducer.ts";
 import {Card} from "../Card/Card.tsx";
+
 export const CardList = () => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
 	const loading = useSelector<AppRootStateType, boolean>(store => store.loading)

@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,256,256" width="24px" height="24px">
-    <g id="trash" fill="#d32b42" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+    <g id="trash" fill="#d32b42" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+       stroke-linejoin="miter"
        stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="200"
        font-size="none" text-anchor="inherit" style="mix-blend-mode: normal">
         <g transform="scale(10.66667,10.66667)">

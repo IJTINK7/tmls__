@@ -1,10 +1,10 @@
-import styles from "./CardsSearchInput.module.css";
-import {ChangeEvent} from "react";
+import "./SearchInput.scss"
 import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../store/store.ts";
-import {changeSearchTitleActionCreator} from "../../store/change-search-title.ts";
+import {ChangeEvent} from "react";
+import {changeSearchTitleActionCreator} from "../../reducers/change-search-title.ts";
 
-export const CardsSearchInput = () => {
+export const SearchInput = () => {
 	const searchTitle = useSelector<AppRootStateType, string>(store => store.searchTitle)
 	const dispatch = useAppDispatch()
 
@@ -12,5 +12,5 @@ export const CardsSearchInput = () => {
 		dispatch(changeSearchTitleActionCreator(e.currentTarget.value))
 	}
 
-	return <input type="text" value={searchTitle} className={styles.input} placeholder={"Search"} onChange={changeInputValueHandler}/>
+	return <input type="text" className="searchInput" value={searchTitle} placeholder={"Search"} onChange={changeInputValueHandler}/>
 };
