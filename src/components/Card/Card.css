@@ -34,11 +34,15 @@
   padding: 2px 0;
   overflow: hidden;
   gap: 8px;
+  max-width: 70%;
 }
 .card .personalData .nameAndEmail .fullName {
   font-size: 20px;
   line-height: 24px;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card .personalData .nameAndEmail .email {
   white-space: nowrap;
@@ -59,16 +63,19 @@
   align-items: flex-start;
   gap: 12px;
   flex-shrink: 0;
-  max-width: 50%;
 }
 .card .additionalData .additionalDataValues {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+  max-width: 70%;
+}
+.card .additionalData .additionalDataValues div {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .active {

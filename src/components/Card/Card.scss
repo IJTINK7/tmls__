@@ -37,9 +37,11 @@
       padding: 2px 0;
       overflow: hidden;
       gap: 8px;
+      max-width: 70%;
 
       .fullName {
         @include cardFullNameText;
+        @include text-ellipsis;
       }
 
       .email {
@@ -56,12 +58,15 @@
       @include appGrayText;
       @include cardAndStatisticsAdditionalData;
       flex-shrink: 0;
-      max-width: 50%;
     }
 
     .additionalDataValues {
-      @include text-ellipsis;
       @include cardAndStatisticsAdditionalData;
+      max-width: 70%;
+      div{
+        max-width: 100%;
+        @include text-ellipsis;
+      }
     }
   }
 }

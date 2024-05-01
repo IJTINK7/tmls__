@@ -18,6 +18,9 @@ export const Card: React.FC<CardType> = memo((props) => {
 	const activateComponentHandler = () => {
 		setIsCardActive(value => !value)
 	}
+	const fullName = `${props.name.first} ${props.name.last}`
+	const email= `${props.email}`
+	const address = `${props.location.city}, ${props.location.state}, ${props.location.country}`
 	return (
 		<div className={`card ${isCardActive ? "active" : ""}`} key={props.login.uuid} onClick={activateComponentHandler}>
 
@@ -26,10 +29,8 @@ export const Card: React.FC<CardType> = memo((props) => {
 					<img src={props.picture.large} alt="image"/>
 				</div>
 				<div className="nameAndEmail">
-					<div className="fullName">
-						{props.name.first} {props.name.last}
-					</div>
-					<div className="email">{props.email}</div>
+					<div className="fullName" title={fullName}>{fullName}</div>
+					<div className="email" title={email}>{email}</div>
 				</div>
 			</div>
 
@@ -42,7 +43,7 @@ export const Card: React.FC<CardType> = memo((props) => {
 				<div className="additionalDataValues">
 					<div>{props.phone}</div>
 					<div>{formattedDate}</div>
-					<div>{props.location.city}, {props.location.state}, {props.location.country}</div>
+					<div title={address}>{address}</div>
 				</div>
 			</div>
 			<DeleteCardButton isCardActive={isCardActive} cardId={props.login.uuid}/>
