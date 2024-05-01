@@ -2,15 +2,17 @@ import "./AgeGroups.scss"
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../store/store.ts";
 import {CardType} from "../../reducers/card-reducer.ts";
+import {memo, useMemo} from "react";
 
-export const AgeGroups = () => {
+export const AgeGroups = memo(() => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards);
 
-	const countUsersInAgeRange = (minAge: number, maxAge: number) => {
-		const count = cards.filter(card => card.dob.age >= minAge && (maxAge ? card.dob.age <= maxAge : true)).length;
-		return `${count} ${count === 1 ? 'user' : 'users'}`;
-	};
-
+	const countUsersInAgeRange = useMemo(() => {
+		return (minAge: number, maxAge: number) => {
+			const count = cards.filter(card => card.dob.age >= minAge && (maxAge ? card.dob.age <= maxAge : true)).length;
+			return `${count} ${count === 1 ? 'user' : 'users'}`;
+		};
+	}, [cards]);
 	return (
 		<div className="ageGroups">
 			<h4>Age Groups</h4>
@@ -32,7 +34,7 @@ export const AgeGroups = () => {
 			</div>
 		</div>
 	);
-};
+});
 
 
 

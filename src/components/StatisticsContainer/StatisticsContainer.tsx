@@ -4,8 +4,9 @@ import {AppRootStateType} from "../../store/store.ts";
 import {CardType} from "../../reducers/card-reducer.ts";
 import {GenderGroups} from "../GenderGroups/GenderGroups.tsx";
 import {AgeGroups} from "../AgeGroups/AgeGroups.tsx";
+import {memo} from "react";
 
-export const StatisticsContainer = () => {
+export const StatisticsContainer = memo(() => {
 	const cards = useSelector<AppRootStateType, CardType[]>(store => store.cards)
 	return (
 		<div className="statisticsContainer">
@@ -20,4 +21,4 @@ export const StatisticsContainer = () => {
 			<GenderGroups/>
 		</div>
 	);
-};
+});
