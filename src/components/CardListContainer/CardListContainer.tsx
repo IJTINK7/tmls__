@@ -4,14 +4,17 @@ import {memo, useEffect, useRef, useState} from "react";
 
 export const CardListContainer = memo(() => {
 
-	const [scrollPosition, setScrollPosition] = useState(0);
+	const [scrollTopPosition, setScrollTopPosition] = useState(0);
+	const [scrollBottomPosition, setScrollBottomPosition] = useState(1);
 	const ref = useRef<HTMLDivElement | null>(null);
 
 	const handleScroll = () => {
 		const currentRef = ref.current
 		if (currentRef) {
-			const position = currentRef.scrollTop;
-			setScrollPosition(position);
+			const scrollTopPosition = currentRef.scrollTop;
+			const scrollBottomPosition = currentRef.scrollHeight - currentRef.scrollTop - currentRef.clientHeight;
+			setScrollTopPosition(scrollTopPosition);
+			setScrollBottomPosition(scrollBottomPosition);
 		}
 	};
 
@@ -27,13 +30,14 @@ export const CardListContainer = memo(() => {
 		};
 	}, []);
 
+
 	return (
-		<div className="cardListContainer scroll" ref={ref}>
-			{scrollPosition !== 0 && <div className="gradient">
-				<div className={"topGradient"}></div>
-				<div className={"bottomGradient"}></div>
-			</div>}
-			<CardList />
+		<div className="cardListWrapper">
+			<div className={`gradient topGradient${scrollTopPosition ? "" : " invisible"}`}></div>
+			<div className={`gradient bottomGradient${scrollBottomPosition ? "" : " invisible"}`}></div>
+			<div className="cardListContainer scroll" ref={ref}>
+				<CardList/>
+			</div>
 		</div>
 	);
 });

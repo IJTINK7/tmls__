@@ -1,46 +1,49 @@
 @import "../../variables";
 
-.cardListContainer {
-  display: flex;
-  flex-wrap: wrap;
-  padding-right: 8px;
-  flex: 100;
+.cardListWrapper {
   position: relative;
-  gap: $indent-l;
-  overflow: hidden;
-}
+  flex: 100;
 
-.gradient {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: inherit;
-  opacity: 0.5;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  pointer-events: none;
+  .cardListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 8px;
+    max-height: 85vh;
+    flex: 100;
+    gap: $indent-l;
+  }
+
+  .gradient {
+    position: absolute;
+    width: 100%;
+    height: $indent-xxxl;
+    z-index: 1;
+    opacity: 1;
+    transition: 0.15s;
+    pointer-events: none;
+  }
 
   .topGradient {
-    height: $indent-xxxl;
-    background-image: linear-gradient(to bottom, rgba(18, 20, 27, 1), rgba(18, 20, 27, 0));
-    z-index: 1;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, $gradientColor, rgba(18, 20, 27, 0));
   }
 
   .bottomGradient {
-    height: $indent-xxxl;
-    background-image: linear-gradient(to top, rgba(18, 20, 27, 1), rgba(18, 20, 27, 0));
-    z-index: 1;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(to top, $gradientColor, rgba(18, 20, 27, 0));
+  }
+
+  .invisible {
+    opacity: 0;
   }
 }
 
 
-
 .scroll {
-  max-height: calc(100vh - 110px);
+  max-height: calc(85vh);
   overflow-y: auto;
   overflow-x: hidden;
 }
