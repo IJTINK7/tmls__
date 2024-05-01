@@ -1,5 +1,5 @@
 # Users - App Web
-# Стэк(React, Redux, TypeScript, SASS/SCSS)
+# Стэк(React, Redux, TypeScript, SASS/SCSS + Vite)
 
 ## Склонируйте репозиторий и перейдите к нему:
 ### git clone https://github.com/IJTINK7/tmls_cards.git
