@@ -21,7 +21,7 @@ export const CardList = memo(() => {
 			el.email.toLowerCase().includes(searchTitle.toLowerCase()) ||
 			el.phone.toLowerCase().includes(searchTitle.toLowerCase()) ||
 			(new Date(el.dob.date)
-				.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }))
+				.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'}))
 				.toLowerCase().includes(searchTitle.toLowerCase()) ||
 			el.location.city.toLowerCase().includes(searchTitle.toLowerCase()) ||
 			el.location.state.toLowerCase().includes(searchTitle.toLowerCase()) ||

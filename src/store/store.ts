@@ -1,4 +1,4 @@
-import {combineReducers, applyMiddleware, createStore } from 'redux'
+import {combineReducers, applyMiddleware, createStore} from 'redux'
 
 import {ThunkDispatch, ThunkAction, thunk} from 'redux-thunk'
 import {useDispatch} from "react-redux";
@@ -18,10 +18,9 @@ const rootReducer = combineReducers({
 export const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export type AppRootStateType = ReturnType<typeof rootReducer>
-export type ActionsType =   CardsActionsType | LoadingActionsType | ChangeSearchTitleActionsType
+export type ActionsType = CardsActionsType | LoadingActionsType | ChangeSearchTitleActionsType
 export type ThunkActionType = ThunkAction<void, AppRootStateType, unknown, ActionsType>;
 export type AppThunkDispatch = ThunkDispatch<AppRootStateType, unknown, ActionsType>;
-
 
 
 export const useAppDispatch = () => useDispatch<AppThunkDispatch>();

@@ -19,10 +19,11 @@ export const Card: React.FC<CardType> = memo((props) => {
 		setIsCardActive(value => !value)
 	}
 	const fullName = `${props.name.first} ${props.name.last}`
-	const email= `${props.email}`
+	const email = `${props.email}`
 	const address = `${props.location.city}, ${props.location.state}, ${props.location.country}`
 	return (
-		<div className={`card ${isCardActive ? "active" : ""}`} key={props.login.uuid} onClick={activateComponentHandler}>
+		<div className={`card ${isCardActive ? "active" : ""}`} key={props.login.uuid}
+		onClick={activateComponentHandler}>
 
 			<div className="personalData">
 				<div className="photo">

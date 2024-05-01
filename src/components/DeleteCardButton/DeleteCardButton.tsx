@@ -10,7 +10,7 @@ type PropsType = {
 	cardId: string
 }
 
-export const DeleteCardButton: React.FC<PropsType> = memo(({ isCardActive, cardId }) => {
+export const DeleteCardButton: React.FC<PropsType> = memo(({isCardActive, cardId}) => {
 	const dispatch = useAppDispatch()
 
 	const deleteCurrentCardHandler = () => {
@@ -20,7 +20,7 @@ export const DeleteCardButton: React.FC<PropsType> = memo(({ isCardActive, cardI
 	return isCardActive ? (
 		<button className="deleteCardButton" onClick={deleteCurrentCardHandler}>
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,256,256" width="24px" height="24px">
-				<use xlinkHref={`${trashIconPath}#trash`} />
+				<use xlinkHref={`${trashIconPath}#trash`}/>
 			</svg>
 		</button>
 	) : null

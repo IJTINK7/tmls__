@@ -12,5 +12,6 @@ export const SearchInput = () => {
 		dispatch(changeSearchTitleActionCreator(e.currentTarget.value))
 	}
 
-	return <input type="text" className="searchInput" value={searchTitle} placeholder={"Search"} onChange={changeInputValueHandler}/>
+	return <input type="text" className="searchInput" value={searchTitle} placeholder={"Search"}
+	onChange={changeInputValueHandler}/>
 };
