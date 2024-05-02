@@ -15,7 +15,7 @@ export const DeleteCardButton: React.FC<PropsType> = memo(({isCardActive, cardId
 
 	const deleteCurrentCardHandler = () => {
 		dispatch(deleteCurrentCardActionCreator(cardId))
-
+	}
 
 	return isCardActive ? (
 		<button className="deleteCardButton" onClick={deleteCurrentCardHandler}>
